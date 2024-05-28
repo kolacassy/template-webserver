@@ -27,9 +27,6 @@ pipeline {
                 }
             }
         }
-                }
-            }
-        }
 
 
         stage('Clean-Up') {
