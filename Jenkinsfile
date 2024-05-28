@@ -18,7 +18,8 @@ pipeline {
         
         stage('Deploy') {
             steps {
-                echo 'Deploying'
+                echo 'Deploying app'
+                sshagent(['webkey']) {
                     sh 'scp -o StrictHostKeyChecking=no -i $SSH_CRED webapp.zip ubuntu@3.98.58.15:/home/ubuntu'
                     sh '$CONNECT "sudo apt install zip -y"'
                     sh '$CONNECT "sudo rm -rf /var/www/html/"'
@@ -27,7 +28,6 @@ pipeline {
                 }
             }
         }
-
 
         stage('Clean-Up') {
             steps {
