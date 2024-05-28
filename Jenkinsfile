@@ -8,6 +8,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'packaging app'
+                sh "pwd"
+                sh "ls"
+                sh "zip -r webapp.zip ."
+                sh "ls"
             }
         }
         
